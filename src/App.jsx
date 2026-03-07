@@ -480,7 +480,7 @@ export default function WomensDay() {
               <div className="card-name">Aashi</div>
               <div className="card-divider" />
               <div className="card-msg">
-                आप ज़िंदगी में वो रोशनी हो
+                तुम ज़िंदगी में वो रोशनी हो
                 <br />
                 जो बिन माँगे मिल जाती है।
                 <br />
