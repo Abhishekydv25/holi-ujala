@@ -22,7 +22,9 @@ const styles = `
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 320px 0 80px;
   }
 
   /* ── Floating orbs ── */
@@ -190,7 +192,7 @@ const styles = `
     pointer-events: none;
   }
   .card-outer.risen {
-    transform: translateX(-50%) translateY(-340px);
+    transform: translateX(-50%) translateY(-260px);
     opacity: 1;
     pointer-events: all;
   }
