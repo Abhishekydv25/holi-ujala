@@ -371,8 +371,8 @@ export default function WomensDay() {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  const YT_PLAY =
-    "https://www.youtube.com/embed/8rs_UeJ-PN8?autoplay=1&loop=1&playlist=8rs_UeJ-PN8";
+  const VIDEO_ID = "8rs_UeJ-PN8";
+  const YT_PLAY = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&loop=1&playlist=${VIDEO_ID}&controls=0&mute=0&enablejsapi=1`;
 
   const handleOpen = () => {
     if (!opened) {
@@ -401,9 +401,18 @@ export default function WomensDay() {
       <iframe
         ref={audioRef}
         src=""
-        style={{ display: "none" }}
-        allow="autoplay"
-        title="song"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          width: "1px",
+          height: "1px",
+          opacity: 0,
+          pointerEvents: "none",
+        }}
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+        title="bg-song"
       />
 
       <div className="scene">
