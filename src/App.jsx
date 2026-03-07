@@ -371,20 +371,15 @@ export default function WomensDay() {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  // Use a free royalty-free gentle piano/flute piece via public CDN
-  const AUDIO_URL =
-    "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3";
+  const YT_PLAY =
+    "https://www.youtube.com/embed/8rs_UeJ-PN8?autoplay=1&loop=1&playlist=8rs_UeJ-PN8";
 
   const handleOpen = () => {
     if (!opened) {
       setOpened(true);
-      // auto-play music on open
       if (audioRef.current) {
-        audioRef.current.volume = 0.5;
-        audioRef.current
-          .play()
-          .then(() => setPlaying(true))
-          .catch(() => {});
+        audioRef.current.src = YT_PLAY;
+        setPlaying(true);
       }
     }
   };
@@ -392,20 +387,24 @@ export default function WomensDay() {
   const toggleAudio = () => {
     if (!audioRef.current) return;
     if (playing) {
-      audioRef.current.pause();
+      audioRef.current.src = "";
       setPlaying(false);
     } else {
-      audioRef.current
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
+      audioRef.current.src = YT_PLAY;
+      setPlaying(true);
     }
   };
 
   return (
     <>
       <style>{styles}</style>
-      <audio ref={audioRef} src={AUDIO_URL} loop />
+      <iframe
+        ref={audioRef}
+        src=""
+        style={{ display: "none" }}
+        allow="autoplay"
+        title="song"
+      />
 
       <div className="scene">
         {/* Stars */}
